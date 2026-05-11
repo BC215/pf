@@ -34,9 +34,9 @@
 
     if (sections.length === 0) return;
 
-    /** 모든 링크에서 활성 클래스 제거 */
+    /** 모든 링크에서 활성 클래스 제거 (.active 는 요구사항 명시 클래스) */
     function clearActive() {
-      links.forEach((link) => link.classList.remove("is-active"));
+      links.forEach((link) => link.classList.remove("active", "is-active"));
     }
 
     /**
@@ -57,7 +57,7 @@
         if (!link) return;
 
         clearActive();
-        link.classList.add("is-active");
+        link.classList.add("active");
       },
       {
         root: null,
@@ -73,7 +73,7 @@
     const firstLink = idToLink.get(firstId);
     if (firstLink) {
       clearActive();
-      firstLink.classList.add("is-active");
+      firstLink.classList.add("active");
     }
   }
 

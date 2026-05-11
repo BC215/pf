@@ -1,0 +1,239 @@
+/**
+ * Experience: 탭 + 타임라인(학력·교육) + 자격증 카드 + 활동 리스트
+ */
+
+.experience {
+  width: 100%;
+  max-width: 100%;
+}
+
+.experience__title {
+  margin: 0 0 var(--space-lg);
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 4vw, 1.75rem);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.experience__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.experience__tab {
+  border: 1px solid color-mix(in srgb, var(--color-text-muted) 40%, transparent);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-family: var(--font-main);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.5rem 0.85rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.experience__tab:hover {
+  color: var(--color-text);
+  border-color: var(--color-primary);
+}
+
+.experience__tab.is-active {
+  color: var(--color-bg);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.experience__panel {
+  display: none;
+  min-width: 0;
+}
+
+.experience__panel.is-active {
+  display: block;
+}
+
+/* ----- 타임라인 ----- */
+.experience__timeline {
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 1.5rem;
+  list-style: none;
+}
+
+.experience__timeline::before {
+  content: "";
+  position: absolute;
+  left: 0.45rem;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-primary) 65%, transparent),
+    color-mix(in srgb, var(--color-text-muted) 35%, transparent)
+  );
+  border-radius: 2px;
+}
+
+.experience__tl-item {
+  position: relative;
+  padding-bottom: var(--space-xl);
+}
+
+.experience__tl-item:last-child {
+  padding-bottom: 0;
+}
+
+.experience__tl-dot {
+  position: absolute;
+  left: -1.05rem;
+  top: 0.35rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-bg) 85%, var(--color-primary) 15%);
+  z-index: 1;
+}
+
+.experience__card {
+  margin-left: var(--space-sm);
+  padding: var(--space-md);
+  border-radius: 0.75rem;
+  background-color: color-mix(in srgb, var(--color-surface) 94%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-text-muted) 18%, transparent);
+}
+
+.experience__card-title {
+  margin: 0 0 var(--space-xs);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.experience__card-sub {
+  margin: 0 0 var(--space-sm);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.experience__card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.experience__card-note {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.experience__work-tasks {
+  margin: 0 0 var(--space-sm);
+  padding-left: 1.1rem;
+  color: var(--color-text);
+  line-height: 1.65;
+  font-size: 0.9rem;
+}
+
+.experience__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
+}
+
+.experience__skill {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-accent) 12%, var(--color-surface));
+  color: var(--color-text);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+}
+
+/* ----- 자격증 ----- */
+.experience__certs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 36rem) {
+  .experience__certs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.experience__cert {
+  display: flex;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--color-surface) 94%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-text-muted) 18%, transparent);
+  min-width: 0;
+}
+
+.experience__cert-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.experience__cert-body {
+  min-width: 0;
+}
+
+.experience__cert-name {
+  margin: 0 0 var(--space-xs);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.experience__cert-issuer,
+.experience__cert-date {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* ----- 활동 ----- */
+.experience__activities {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.experience__activity {
+  padding: var(--space-md);
+  border-radius: 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--color-text-muted) 18%, transparent);
+  background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+}
+
+.experience__activity-title {
+  margin: 0 0 var(--space-xs);
+  font-weight: 700;
+}
+
+.experience__activity-period {
+  margin: 0 0 var(--space-sm);
+  font-size: 0.85rem;
+  color: var(--color-primary);
+}
+
+.experience__activity-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}

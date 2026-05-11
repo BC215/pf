@@ -1,0 +1,167 @@
+/**
+ * About 섹션: 프로필 + 소개 + 키워드 태그 + 구직 뱃지
+ */
+
+.about {
+  width: 100%;
+  max-width: 100%;
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+@media (min-width: 48rem) {
+  .about__grid {
+    grid-template-columns: minmax(11rem, 14rem) 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+}
+
+/* ----- 프로필 아바타: 원형, 이미지 실패 시 이니셜 ----- */
+.about__avatar {
+  position: relative;
+  width: min(100%, 14rem);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-surface) 90%, var(--color-primary) 10%);
+  border: 3px solid color-mix(in srgb, var(--color-primary) 45%, transparent);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+@media (min-width: 48rem) {
+  .about__avatar {
+    margin-inline: 0;
+  }
+}
+
+.about__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about__avatar.about__avatar--fallback .about__photo {
+  display: none;
+}
+
+.about__initials {
+  display: none;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 8vw, 2.75rem);
+  letter-spacing: 0.04em;
+  color: var(--color-primary);
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--color-surface) 85%, var(--color-primary) 15%),
+    var(--color-bg)
+  );
+}
+
+.about__avatar.about__avatar--fallback .about__initials {
+  display: flex;
+}
+
+/* ----- 본문 ----- */
+.about__body {
+  min-width: 0;
+}
+
+.about__title {
+  margin: 0 0 var(--space-md);
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 4vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.about__summary {
+  margin: 0 0 var(--space-lg);
+  color: var(--color-text-muted);
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+  line-height: 1.75;
+}
+
+/* 구직 가능: 펄스 점 + 뱃지 */
+.about__status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.about__pulse {
+  position: relative;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background-color: #22c55e;
+  flex-shrink: 0;
+}
+
+.about__pulse::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, #22c55e 55%, transparent);
+  animation: about-pulse 1.6s ease-out infinite;
+}
+
+@keyframes about-pulse {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about__pulse::after {
+    animation: none;
+    opacity: 0.35;
+  }
+}
+
+.about__badge {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #bbf7d0;
+  background-color: color-mix(in srgb, #166534 35%, var(--color-surface));
+  border: 1px solid color-mix(in srgb, #22c55e 45%, transparent);
+  border-radius: 999px;
+}
+
+.about__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.about__tag {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid color-mix(in srgb, var(--color-text-muted) 35%, transparent);
+  border-radius: 999px;
+}

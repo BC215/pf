@@ -1,0 +1,196 @@
+/**
+ * Contact: 연락처 + mailto 폼
+ */
+
+.contact {
+  width: 100%;
+  max-width: 100%;
+}
+
+.contact__title {
+  margin: 0 0 var(--space-lg);
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 4vw, 1.75rem);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+@media (min-width: 48rem) {
+  .contact__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: var(--space-2xl);
+  }
+}
+
+.contact__info-title {
+  margin: 0 0 var(--space-md);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.contact__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.contact__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--color-text-muted) 22%, transparent);
+  background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  min-width: 0;
+}
+
+.contact__link:hover {
+  border-color: color-mix(in srgb, var(--color-primary) 55%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-primary) 25%, transparent);
+}
+
+.contact__link-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--color-primary) 18%, transparent);
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.contact__link-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.contact__link-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.contact__link-value {
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+
+/* ----- 폼 ----- */
+.contact__form {
+  padding: var(--space-lg);
+  border-radius: 0.875rem;
+  border: 1px solid color-mix(in srgb, var(--color-text-muted) 20%, transparent);
+  background: color-mix(in srgb, var(--color-surface) 94%, transparent);
+  min-width: 0;
+}
+
+.contact__field {
+  margin-bottom: var(--space-md);
+}
+
+.contact__label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.contact__input,
+.contact__textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0.65rem 0.85rem;
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 2px solid color-mix(in srgb, var(--color-text-muted) 35%, transparent);
+  border-radius: 0.5rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.contact__textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.contact__input:focus,
+.contact__textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 28%, transparent);
+  background-color: color-mix(in srgb, var(--color-bg) 92%, var(--color-primary) 8%);
+}
+
+.contact__error {
+  margin-top: var(--space-xs);
+  font-size: 0.8rem;
+  color: #f87171;
+  min-height: 1.1em;
+}
+
+.contact__submit {
+  width: 100%;
+  margin-top: var(--space-sm);
+  min-height: 2.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--color-primary);
+  color: var(--color-bg);
+  transition: filter 0.2s ease, transform 0.1s ease;
+}
+
+.contact__submit:hover {
+  filter: brightness(1.06);
+}
+
+.contact__submit:active {
+  transform: scale(0.99);
+}
+
+.contact__note {
+  margin: var(--space-md) 0 0;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.contact__success {
+  display: none;
+  margin-top: var(--space-md);
+  padding: var(--space-md);
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, #166534 28%, var(--color-surface));
+  border: 1px solid color-mix(in srgb, #22c55e 45%, transparent);
+  color: #bbf7d0;
+  font-size: 0.9rem;
+}
+
+.contact__success.is-visible {
+  display: block;
+}

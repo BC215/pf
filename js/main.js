@@ -89,6 +89,10 @@
       renderProjects(data.projects);
       renderExperience(data.experience);
       renderContact(data.contact);
+
+      if (typeof window.portfolioBindDynamicSections === "function") {
+        window.portfolioBindDynamicSections();
+      }
     } catch (err) {
       console.error(err);
       showFatalError("데이터는 받았지만 화면을 그리는 중 오류가 발생했습니다. 콘솔 로그를 확인해 주세요.");

@@ -47,7 +47,11 @@ a {
 
 /* 키보드 포커스 시에만 윤곽선 표시: 접근성 유지 + 마우스 클릭 시 과한 링 최소화 */
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible {
   outline: 2px solid var(--color-accent, #c9f31d);
   outline-offset: 2px;
 }
