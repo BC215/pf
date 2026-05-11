@@ -1,0 +1,41 @@
+/**
+ * variables.css
+ * 색·타이포·간격·브레이크포인트를 CSS 변수로 모아 두면 테마 변경·유지보수가 쉬워집니다.
+ */
+
+:root {
+  /* ----- 색상 (다크 테마 기반) ----- */
+  /* 페이지 배경: 짙은 남색 톤 */
+  --color-bg: #0b0f14;
+  /* 표면(카드·내비 배경): 배경보다 약간 밝게 레이어 구분 */
+  --color-surface: #121826;
+  /* 본문 텍스트: 순백보다 부드러운 오프화이트 */
+  --color-text: #e8ecf1;
+  /* 보조 텍스트 */
+  --color-text-muted: #9aa3af;
+  /* 메인(브랜드) 컬러: 차분한 시안 블루 */
+  --color-primary: #38bdf8;
+  /* 포인트 컬러: 시선을 끄는 라임 */
+  --color-accent: #bef264;
+
+  /* ----- 타이포그래피 ----- */
+  --font-main: "Noto Sans KR", system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk", "Noto Sans KR", system-ui, sans-serif;
+
+  /* ----- 간격 스케일 (모바일 우선, 필요 시 미디어쿼리에서 키움) ----- */
+  --space-xs: 0.25rem; /* 4px @16px root */
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+  /* ----- 반응형 브레이크포인트 (JS와 공유할 때 참고용 문자열; CSS에서는 아래 수치와 맞출 것) ----- */
+  --bp-sm: 36rem; /* 576px */
+  --bp-md: 48rem; /* 768px */
+  --bp-lg: 64rem; /* 1024px */
+  --bp-xl: 80rem; /* 1280px */
+
+  /* 내비 높이: 고정 헤더만큼 본문 상단 패딩에 사용 */
+  --nav-height: 3.5rem;
+}

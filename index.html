@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- 기본 문자 인코딩: 한글 등 모든 문자를 올바르게 표시 -->
+    <meta charset="UTF-8" />
+    <!-- 모바일 뷰포트: 반응형 레이아웃의 기준 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>포트폴리오 | 정적 원페이지</title>
+    <meta
+      name="description"
+      content="HTML, CSS, JavaScript만으로 구성한 정적 포트폴리오 원페이지입니다."
+    />
+
+    <!-- Open Graph: SNS·메신저 미리보기용 메타데이터 (실제 배포 시 URL/이미지를 교체하세요) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="포트폴리오 | 정적 원페이지" />
+    <meta
+      property="og:description"
+      content="HTML, CSS, JavaScript만으로 구성한 정적 포트폴리오 원페이지입니다."
+    />
+    <meta property="og:url" content="https://example.com/" />
+    <meta property="og:locale" content="ko_KR" />
+
+    <!-- Google Fonts: DNS 연결 사전 수립으로 로딩 지연 완화 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- 본문: Noto Sans KR / 디스플레이(영문 강조): Space Grotesk -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 스타일 로드 순서: 리셋 → 변수 → 레이아웃 (캐스케이딩 순서) -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+
+    <!-- defer: HTML 파싱 후 순서대로 실행 (DOM 준비와 타이밍이 맞기 쉬움) -->
+    <!-- 의존 순서: renderer(렌더 함수) → ui(인터랙션) → main(데이터 로드 및 호출) -->
+    <script src="js/renderer.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <!-- 상단 고정 내비게이션: 각 섹션 앵커로 스크롤 이동 -->
+    <header class="site-header">
+      <nav class="site-nav" aria-label="주요 메뉴">
+        <a class="site-nav__brand" href="#hero">Portfolio</a>
+
+        <!-- 모바일에서만 보이는 햄버거 버튼 (ui.js에서 토글) -->
+        <button
+          class="site-nav__toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav-menu"
+          aria-label="메뉴 열기"
+        >
+          <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+          <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+          <span class="site-nav__toggle-bar" aria-hidden="true"></span>
+        </button>
+
+        <ul class="site-nav__list" id="site-nav-menu">
+          <li><a class="site-nav__link" href="#hero">Hero</a></li>
+          <li><a class="site-nav__link" href="#about">About</a></li>
+          <li><a class="site-nav__link" href="#tech-stack">Tech</a></li>
+          <li><a class="site-nav__link" href="#projects">Projects</a></li>
+          <li><a class="site-nav__link" href="#experience">Experience</a></li>
+          <li><a class="site-nav__link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="site-main">
+      <!-- 각 섹션: renderer.js가 .section__inner 안에 내용을 채움 -->
+      <!-- reveal 클래스: ui.js의 스크롤 fade-in 관찰 대상 -->
+      <section id="hero" class="section section--hero reveal">
+        <div class="section__inner"></div>
+      </section>
+
+      <section id="about" class="section reveal">
+        <div class="section__inner"></div>
+      </section>
+
+      <section id="tech-stack" class="section reveal">
+        <div class="section__inner"></div>
+      </section>
+
+      <section id="projects" class="section reveal">
+        <div class="section__inner"></div>
+      </section>
+
+      <section id="experience" class="section reveal">
+        <div class="section__inner"></div>
+      </section>
+
+      <section id="contact" class="section reveal">
+        <div class="section__inner"></div>
+      </section>
+    </main>
+
+    <!--
+      file:// 로 index.html 을 직접 열면 fetch('./data/portfolio.json') 이 차단되는 경우가 많습니다.
+      그때는 아래 임베드 JSON을 사용합니다. 내용은 data/portfolio.json 과 맞춰 두세요.
+    -->
+    <script type="application/json" id="portfolio-embedded-data">
+{"hero":{},"about":{},"techStack":{},"projects":[],"experience":[],"contact":{}}
+    </script>
+  </body>
+</html>
